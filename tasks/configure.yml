@@ -7,14 +7,14 @@
       defaults:
         - { domain: "com.apple.TimeMachine", key: "DoNotOfferNewDisksForBackup", type: "boolean", value: "{{ macos_timemachine.prompt_new }}", description: "Prevent Time Machine from prompting to use new hard drives as backup volume" }
 
-- name: "Disable local Time Machine snapshots"
+- name: "Disable Time Machine"
   become: true
-  command: "tmutil disablelocal"
-  when: not macos_timemachine.local
+  command: "tmutil disable"
+  when: not macos_timemachine.enabled
   changed_when: false
 
-- name: "Enable local Time Machine snapshots"
+- name: "Enable Time Machine"
   become: true
-  command: "tmutil enablelocal"
-  when: macos_timemachine.local
+  command: "tmutil enable"
+  when: macos_timemachine.enabled
   changed_when: false
