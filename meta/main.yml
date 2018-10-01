@@ -16,7 +16,7 @@ galaxy_info:
     - timemachine
     - backup
 dependencies:
-  - { role: uschti.macos-defaults,
+  - { role: feffi.macos-defaults,
       macos_defaults: {
         defaults: []
       }
